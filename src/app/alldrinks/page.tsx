@@ -24,11 +24,11 @@ export default async function DrinksPage() {
   const drinks = await getDrinks();
 
   return (
-    <div className="mx-auto p-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 border-2 border-amber-500 max-w-300">
+    <div className="mx-auto p-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-300">
       {drinks.map((drink) => (
         <div
           key={drink.id}
-          className="border-5 border-red-50 rounded-lg p-4 shadow hover:shadow-lg transition"
+          className="border-2 rounded-lg p-4 shadow hover:shadow-lg transition"
         >
           <h2 className="text-xl font-semibold uppercase">
             {drink.name}
