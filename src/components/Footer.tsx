@@ -17,23 +17,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/drinks" className="hover:text-gray-400">
-                drinks
-              </Link>
-            </li>
-            <li>
-              <Link href="/shots" className="hover:text-gray-400">
-                shots
-              </Link>
-            </li>
-          </ul>
-
-          <ul className="gap-4">
-            <li>
               <Link href="/makedrink" className="hover:text-gray-400">
                 make drink
               </Link>
             </li>
+
+          </ul>
+
+          <ul className="gap-4">
             <li>
               <Link href="/makeshot" className="hover:text-gray-400">
                 make shot

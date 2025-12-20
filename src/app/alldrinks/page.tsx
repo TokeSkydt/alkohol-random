@@ -24,20 +24,19 @@ export default async function DrinksPage() {
   const drinks = await getDrinks();
 
   return (
-    <div className="mx-auto p-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-300">
-      {drinks.map((drink) => (
-        <div
-          key={drink.id}
-          className="border-2 rounded-lg p-4 shadow hover:shadow-lg transition"
-        >
-          <h2 className="text-xl font-semibold uppercase">
-            {drink.name}
-          </h2>
-          <p className="text-gray-600 mt-2">
-            {drink.description}
-          </p>
-        </div>
-      ))}
-    </div>
+    <main>
+      <h1 className="text-center text-2xl uppercase">Drinks</h1>
+      <div className="mx-auto p-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-230">
+        {drinks.map((drink) => (
+          <div
+            key={drink.id}
+            className="border-2 rounded-lg p-4 shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-semibold uppercase">{drink.name}</h2>
+            <p className="text-gray-600 mt-2">{drink.description}</p>
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
