@@ -26,7 +26,7 @@ export default function Footer() {
 
           <ul className="gap-4">
             <li>
-              <Link href="/makeshot" className="hover:text-gray-400">
+              <Link href="/makeshots" className="hover:text-gray-400">
                 make shot
               </Link>
             </li>

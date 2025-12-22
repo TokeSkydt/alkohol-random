@@ -84,7 +84,7 @@ export default function Wheel({ drinks }: WheelProps) {
 
         {/* 🎡 WHEEL */}
         <div
-          className="w-full h-full rounded-full transition-transform duration-3000 ease-out"
+          className="w-full h-full rounded-full transition-transform duration-3000 ease-out overflow-hidden"
           style={{
             transform: `rotate(${rotation}deg)`,
             background: `conic-gradient(from -90deg, ${gradient})`,
