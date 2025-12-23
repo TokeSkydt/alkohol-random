@@ -73,56 +73,61 @@ export default function Wheel({ drinks }: WheelProps) {
   return (
     <>
       {/* 🔻 WHEEL CONTAINER */}
-      <div className="relative w-80 h-80 mx-auto mt-10">
-        {/* 🔺 POINTER */}
-        <div
-          className="absolute -top-3 left-1/2 -translate-x-1/2 
-            w-0 h-0 border-l-8 border-r-8 border-b-16
-            border-l-transparent border-r-transparent border-b-black
-            rotate-180 z-10"
-        />
+      {/* 🔻 OUTER WRAPPER (allows overflow for pointer) */}
+<div className="relative w-80 mx-auto mt-10">
+  
+  {/* 🔺 POINTER (not clipped) */}
+  <div
+    className="absolute -top-3 left-1/2 -translate-x-1/2 
+      w-0 h-0 border-l-8 border-r-8 border-b-16
+      border-l-transparent border-r-transparent border-b-black
+      rotate-180 z-10"
+  />
 
-        {/* 🎡 WHEEL */}
-        <div
-          className="w-full h-full rounded-full transition-transform duration-3000 ease-out overflow-hidden"
-          style={{
-            transform: `rotate(${rotation}deg)`,
-            background: `conic-gradient(from -90deg, ${gradient})`,
-          }}
-        >
-          {/* 🏷 DRINK LABELS */}
-          {drinks.map((drink, index) => {
-            const angle = slice * index + slice / 2;
+  {/* 🎡 INNER WHEEL (clipped) */}
+  <div className="relative w-80 h-80 overflow-hidden">
+    <div
+      className="w-full h-full rounded-full transition-transform duration-3000 ease-out"
+      style={{
+        transform: `rotate(${rotation}deg)`,
+        background: `conic-gradient(from -90deg, ${gradient})`,
+      }}
+    >
+      {/* 🏷 DRINK LABELS */}
+      {drinks.map((drink, index) => {
+        const angle = slice * index + slice / 2;
 
-            return (
-              <div
-                key={drink.id}
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  transform: `rotate(${angle}deg)`,
-                }}
-              >
-                <div
-                  className="absolute left-1/2 top-1/2"
-                  style={{
-                    transform: ` translateX(-50%) translateY(-50%) rotate(-90deg) translateY(-96px)`,
-                    transformOrigin: "center",
-                  }}
-                >
-                  <span className="block w-24 text-xs font-bold text-white drop-shadow rotate-90 ">
-                    {drink.name}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
-          {/* ⚪ CENTER CIRCLE */}
+        return (
           <div
-            className="absolute inset-1/2 w-16 h-16 bg-white rounded-full 
-            -translate-x-1/2 -translate-y-1/2 shadow-lg"
-          />
-        </div>
-      </div>
+            key={drink.id}
+            className="absolute inset-0 pointer-events-none"
+            style={{ transform: `rotate(${angle}deg)` }}
+          >
+            <div
+              className="absolute left-1/2 top-1/2"
+              style={{
+                transform:
+                  "translate(-50%, -50%) rotate(-90deg) translateY(-96px)",
+                transformOrigin: "center",
+              }}
+            >
+              <span className="block w-24 text-xs font-bold text-white drop-shadow rotate-90">
+                {drink.name}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+
+      {/* ⚪ CENTER CIRCLE */}
+      <div
+        className="absolute inset-1/2 w-16 h-16 bg-white rounded-full 
+        -translate-x-1/2 -translate-y-1/2 shadow-lg"
+      />
+    </div>
+  </div>
+</div>
+
 
       {/* 🔘 BUTTON */}
       <button

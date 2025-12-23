@@ -6,7 +6,7 @@ function ShotsModal({
   onClose: () => void
 }) {
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center overflow-hidden">
       <div className="bg-white p-6 rounded-lg w-80 text-center">
         <h2 className="text-2xl font-bold mb-2">
           {drink.name}
